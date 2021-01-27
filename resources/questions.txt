@@ -1,0 +1,44 @@
+Q001:Why are comments used in the source code?
+A001:Comments are used to document and describe the meaning and purpose of lines of code directly on the spot.
+Q002:Describe the three comment types in Java. How do you recognize them and what are they used for?
+A002:Single line comments: They are introduced with double slashes and are valid until the end of a line. They are used for short descriptions.
+Bracketed or Multi line comments: They are introduced with a slash and a star and are valid until the end marker (i.e., a star followed by a slash). They can extend over several lines. They are used for detailed explanations.
+Javadoc comments: They are used like bracketed comments but introduced with a slash and two stars. They also extend over several lines and are useful for detailed documentation of source code. Javadoc comments are used by the external Javadoc program to generate technical documentation as HTML pages. Javadoc tags are available for the documentation. They can be used to identify explicit information such as the meaning of the parameters and the return value of a method.
+Q003:How does one give the short description of a method in Javadoc comments as well as describe the method parameters and return value?
+A003:The short description of a method consists of the first sentence of the Javadoc comment. Method parameters are described by the Javadoc tag @param; the return value by @return.
+Q004:Describe the purpose of Java annotations.
+A004:Java annotations are metadata available to the compiler and at the runtime of the program. They can be used to make certain statements about the code which can then be checked automatically by the compiler.
+Q005:What are code conventions and why were they developed?
+A005:Code conventions are agreements on how code is structured, named, and formatted. They were developed since many people often work together on a system and therefore need to understand one another's code.
+Q006:How do code conventions affect the maintainability of software?
+A006:These conventions are intended to help one read source code more efficiently. Code that can be read quickly can also be better understood, maintained and adapted.
+Q007:Name and explain the general advantages of the central definition of console output for objects.
+A007:Since the definition is only made once and centrally, less programming effort is required. Additionally, in contrast to multiple, decentralized definitions of console output, it is less likely that any attribute will be forgotten during output.
+Q008:Which method should be overwritten to generate a string description for an object in the Java programming language?
+A008:The class Object, from which all Java classes implicitly inherit, offers the method toString() for this purpose.
+Q009:Why do all objects in Java have a toString() method even when they do have an inheritance relationship or implement an interface?
+A009:The toString() method is defined in the general superclass Object.
+Q010:How are primitive data types stored? How are complex data types stored?
+A010:Primitive data types are stored in main memory as numbers, floating-point numbers, letters, or truth values. Complex data types are stored as a reference that refers to an object.
+Q011:What effects do the differences between reference and primitive data types have on the comparison of data types?
+A011:Primitive data types are compared with each other without any problems when using the == operator. Reference types, on the other hand, are only compared with each other using the reference. The system therefore checks whether they are the same objects. Identical objects cannot be compared in this way.
+Q012:What possibility does Java offer to compare the content of complex data types?
+A012:In Java, the equals() method of the class Object can be overridden to compare the contents of objects.
+Q013:What is the usual procedure for a comparing content with the equals() method?
+A013:1.	Check that it is the same reference.
+2.	Check that the objects are of the same type.
+3.	If yes, convert type and compare.
+4.	If no, call equals() method of the superclass.
+Q014:In which cases is the hashCode() method used?
+A014:The comparison with equals() is too slow for large classes with many attributes relevant for the comparison. In order to achieve similar fast processing as when comparing references, the comparison is performed using a hash code that depends on the content which can be generated with the method hashCode(). Apart from this, the hashCode() method is required by data structures that use hashing.
+Q015:What is hashing?
+A015:Hashing is the generation of a key for a given object that is as unique as possible.
+Q016:How can hash codes of strings be formed?
+A016:Each letter can be multiplied by a prime number which is always raised to a different power. The sum of these products results in the hash code.
+Q017:What are the requirements for a hashCode() method?
+A017:The method must be stable and match the equals() method. In addition, the generated hash codes must be as unique or widely spread as possible and only attributes that have to do with the identity of the object should be included in the calculation.
+Q018:What does “call by value” mean and how is it different from “call by reference”?
+A018:If primitive data types are used as parameters when a method is called in Java, a copy of the value is passed. This is referred to as “call by value.” Changes to the passed values only have local effects within the method. If, on the other hand, an object is expected, the reference to the object is passed and not a copy of the object (this is called a “call by reference”).
+Q019:What side effects can occur with “call by reference”?
+A019:“Call by reference” means that the calling program and the called method work with the same object. The changes to the object within the method therefore also affect the calling program.
+Q020:There are classes that do not inherit from the class Object.
