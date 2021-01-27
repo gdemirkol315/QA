@@ -41,4 +41,3 @@ Q018:What does “call by value” mean and how is it different from “call by 
 A018:If primitive data types are used as parameters when a method is called in Java, a copy of the value is passed. This is referred to as “call by value.” Changes to the passed values only have local effects within the method. If, on the other hand, an object is expected, the reference to the object is passed and not a copy of the object (this is called a “call by reference”).
 Q019:What side effects can occur with “call by reference”?
 A019:“Call by reference” means that the calling program and the called method work with the same object. The changes to the object within the method therefore also affect the calling program.
-Q020:There are classes that do not inherit from the class Object.

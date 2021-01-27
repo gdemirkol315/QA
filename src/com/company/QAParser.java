@@ -2,9 +2,8 @@ package com.company;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 
+//TODO: fix parsing
 public class QAParser {
 
     private Object OutputStream;
@@ -22,15 +21,15 @@ public class QAParser {
         try {
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(
-                    this.getClass().getResourceAsStream("/" + "questions.txt")));
-
-            while ((nextLine = reader.readLine()) != null) {
+                    this.getClass().getResourceAsStream("/questions.txt")));
+            nextLine = reader.readLine();
+            while (nextLine != null) {
                 qa = new QA();
                 while (!nextLine.matches(A_PATTERN)) {
                     if (nextLine.matches(Q_PATTERN)) {
                         question = nextLine;
                         nextLine = reader.readLine();
-                    }else {
+                    } else {
                         question = question + " " + nextLine;
                         nextLine = reader.readLine();
                     }
@@ -41,7 +40,7 @@ public class QAParser {
                     if (nextLine.matches(A_PATTERN)) {
                         answer = nextLine;
                         nextLine = reader.readLine();
-                    }else {
+                    } else {
                         answer = answer + " " + nextLine;
                         nextLine = reader.readLine();
                     }
