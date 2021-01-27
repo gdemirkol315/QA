@@ -2,17 +2,19 @@ package com.company;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-//TODO: fix parsing
 public class QAParser {
 
-    private Object OutputStream;
-    final private static String Q_PATTERN = "Q[0-9]{3}:.*";
-    final private static String A_PATTERN = "A[0-9]{3}:.*";
+    final private static String Q_REGEX = "(Q[0-9]{3}:)(.*)";
+    final private static String A_REGEX = "(A[0-9]{3}:)(.*)";
+    final private static Pattern Q_PATTERN = Pattern.compile(Q_REGEX);
+    final private static Pattern A_PATTERN = Pattern.compile(A_REGEX);
 
     public ArrayList<QA> parseQAs() {
 
-        String nextLine;
+        String readLine;
         String question = new String();
         String answer = new String();
         QA qa;
@@ -22,30 +24,38 @@ public class QAParser {
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(
                     this.getClass().getResourceAsStream("/questions.txt")));
-            nextLine = reader.readLine();
-            while (nextLine != null) {
+            readLine = reader.readLine();
+            while (readLine != null) {
                 qa = new QA();
-                while (!nextLine.matches(A_PATTERN)) {
-                    if (nextLine.matches(Q_PATTERN)) {
-                        question = nextLine;
-                        nextLine = reader.readLine();
+                while (!readLine.matches(A_REGEX)) {
+                    if (readLine.matches(Q_REGEX)) {
+                        Matcher qMatcher = Q_PATTERN.matcher(readLine);
+                        if(qMatcher.find()) {
+                            question = qMatcher.group(2);
+                        }
+                        readLine = reader.readLine();
                     } else {
-                        question = question + " " + nextLine;
-                        nextLine = reader.readLine();
+                        question = question + " " + readLine;
+                        readLine = reader.readLine();
                     }
                 }
                 qa.setQuestion(question);
 
-                while (!nextLine.matches(Q_PATTERN)) {
-                    if (nextLine.matches(A_PATTERN)) {
-                        answer = nextLine;
-                        nextLine = reader.readLine();
+                while (!readLine.matches(Q_REGEX)) {
+                    if (readLine.matches(A_REGEX)) {
+                        Matcher aMatcher = A_PATTERN.matcher(readLine);
+                        if (aMatcher.find()) {
+                            answer = aMatcher.group(2);
+                        }
                     } else {
-                        answer = answer + " " + nextLine;
-                        nextLine = reader.readLine();
+                        answer = answer + " " + readLine;
+                    }
+                    readLine = reader.readLine();
+                    if (readLine==null) {
+                        break;
                     }
                 }
-                qa.setAnswer(question);
+                qa.setAnswer(answer);
                 parsedQAs.add(qa);
             }
         } catch (FileNotFoundException e) {
