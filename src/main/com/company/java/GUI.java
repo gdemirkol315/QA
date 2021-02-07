@@ -42,6 +42,7 @@ public class GUI implements ActionListener {
         panel.setBorder(BorderFactory.createEmptyBorder(250, 250, 250, 250));
         panel.setLayout(new GridLayout(0, 1));
         panel.add(qLabel);
+            aLabel.setBorder((BorderFactory.createEmptyBorder(150,150,150,150)));
         panel.add(aEntryField);
         panel.add(hintButton);
         panel.add(nextButton);
