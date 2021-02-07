@@ -1,4 +1,4 @@
-package com.company;
+package main.com.company.java;
 
 public class QA {
     private String question;

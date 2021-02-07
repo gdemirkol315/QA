@@ -1,4 +1,7 @@
-package com.company;
+package main.com.company.java;
+
+import main.com.company.java.utils.Converter;
+import main.com.company.java.utils.GUIAction;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,16 +18,21 @@ public class GUI implements ActionListener {
     private static JLabel aLabel;
     private static JTextField aEntryField;
     private static int qCounter;
+    private static ArrayList<QA> qas;
 
     public GUI(ArrayList<QA> qas, boolean questionsRandomized) {
+        this.qas = qas;
         frame = new JFrame();
         panel = new JPanel();
         qLabel = new JLabel("Question:\n" + qas.get(qCounter).getQuestion());
-        aLabel = new JLabel("Answer:\n" + qas.get(qCounter).getAnswer());
+        aLabel = new JLabel();
         aEntryField = new JTextField();
         qCounter++;
         nextButton = new JButton("Next Question");
         hintButton = new JButton("Hint");
+
+        hintButton.addActionListener(this);
+        nextButton.addActionListener(this);
 
         panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
         panel.setLayout(new GridLayout(0, 1));
@@ -32,10 +40,7 @@ public class GUI implements ActionListener {
         panel.add(aEntryField);
         panel.add(hintButton);
         panel.add(nextButton);
-
-        hintButton.addActionListener(this);
-        nextButton.addActionListener(this);
-
+        panel.add(aLabel);
         frame.add(panel, BorderLayout.CENTER);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Exam Practice");
@@ -47,13 +52,19 @@ public class GUI implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (e.getActionCommand().equals("Hint")) {
-            panel.add(aLabel);
-            frame.add(panel);
+        GUIAction guiAction = GUIAction.INITIAL_STATE;
+        guiAction = Converter.getAction(e.getActionCommand());
 
+        if (guiAction.equals(GUIAction.HINT)) {
+            aLabel.setText("Answer:\n" + qas.get(qCounter).getAnswer());
+
+        } else if (guiAction.equals(GUIAction.NEXT_QUESTION)) {
+            qCounter++;
+            qLabel.setText("Question:\n" + qas.get(qCounter).getQuestion());
+            aLabel.setText("");
+        } else if (guiAction.equals(GUIAction.FLAG)) {
 
         }
-
 
     }
 }

@@ -1,5 +1,9 @@
-package com.company;
+package main;
 
+
+import main.com.company.java.GUI;
+import main.com.company.java.QA;
+import main.com.company.java.QAParser;
 
 import java.util.ArrayList;
 
