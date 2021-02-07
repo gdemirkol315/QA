@@ -20,6 +20,9 @@ public class GUI implements ActionListener {
     private static int qCounter;
     private static ArrayList<QA> qas;
 
+    //TODO add flag to GUI for flagging a question, flag/unflag questions with actions
+    // then add another button for calling all flagged questions
+
     public GUI(ArrayList<QA> qas, boolean questionsRandomized) {
         this.qas = qas;
         frame = new JFrame();
