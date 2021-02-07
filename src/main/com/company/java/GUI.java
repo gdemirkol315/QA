@@ -20,14 +20,16 @@ public class GUI implements ActionListener {
     private static int qCounter;
     private static ArrayList<QA> qas;
 
-    //TODO add flag to GUI for flagging a question, flag/unflag questions with actions
-    // then add another button for calling all flagged questions
+    //TODO add flag button to GUI for flagging a question
+    //TODO flag/unflag questions with actions
+    //TODO add another button for calling all flagged questions
+    //TODO optimize GUI Layout (increase label size, make it more readable, etc.)
 
     public GUI(ArrayList<QA> qas, boolean questionsRandomized) {
         this.qas = qas;
         frame = new JFrame();
         panel = new JPanel();
-        qLabel = new JLabel("Question:\n" + qas.get(qCounter).getQuestion());
+        qLabel = new JLabel("<html>Question:<br>" + addNewLines(qas.get(qCounter).getQuestion()) + "</html>");
         aLabel = new JLabel();
         aEntryField = new JTextField();
         qCounter++;
@@ -37,7 +39,7 @@ public class GUI implements ActionListener {
         hintButton.addActionListener(this);
         nextButton.addActionListener(this);
 
-        panel.setBorder(BorderFactory.createEmptyBorder(30, 30, 10, 30));
+        panel.setBorder(BorderFactory.createEmptyBorder(250, 250, 250, 250));
         panel.setLayout(new GridLayout(0, 1));
         panel.add(qLabel);
         panel.add(aEntryField);
@@ -57,17 +59,32 @@ public class GUI implements ActionListener {
 
         GUIAction guiAction = GUIAction.INITIAL_STATE;
         guiAction = Converter.getAction(e.getActionCommand());
-
+        String label;
         if (guiAction.equals(GUIAction.HINT)) {
-            aLabel.setText("Answer:\n" + qas.get(qCounter).getAnswer());
+            label = addNewLines(qas.get(qCounter).getAnswer());
+            aLabel.setText("<html>Answer:<br>" + label + "</html>");
 
         } else if (guiAction.equals(GUIAction.NEXT_QUESTION)) {
             qCounter++;
-            qLabel.setText("Question:\n" + qas.get(qCounter).getQuestion());
+            label = addNewLines(qas.get(qCounter).getQuestion());
+            qLabel.setText("<html>Question:<br>" + label + "</html>");
             aLabel.setText("");
         } else if (guiAction.equals(GUIAction.FLAG)) {
 
         }
+    }
+
+    private String addNewLines(String label) {
+        String adjustedLabel = label;
+        int charCount = Math.toIntExact(adjustedLabel.chars().count());
+        int newLineCharCount = 100;
+        while (charCount > newLineCharCount) {
+            adjustedLabel = adjustedLabel.substring(0, charCount) + "<br>" +
+                    adjustedLabel.substring(charCount, (int) adjustedLabel.chars().count());
+            charCount = charCount - newLineCharCount;
+        }
+
+        return adjustedLabel;
 
     }
 }
