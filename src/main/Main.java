@@ -7,8 +7,6 @@ import main.com.company.java.QAParser;
 
 import java.util.ArrayList;
 
-//TODO: Implement GUI, integrate QA to GUI
-
 public class Main  {
 
     public static void main(String[] args) {
@@ -16,6 +14,4 @@ public class Main  {
         ArrayList<QA> qas = qaParser.parseQAs();
         GUI gui = new GUI(qas,false);
         }
-
-
 }
