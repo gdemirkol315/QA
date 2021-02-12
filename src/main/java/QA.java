@@ -1,5 +1,3 @@
-package main.com.company.java;
-
 public class QA {
     private String question;
     private String answer;

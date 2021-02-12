@@ -1,7 +1,5 @@
-package main.com.company.java;
-
-import main.com.company.java.utils.Converter;
-import main.com.company.java.utils.GUIAction;
+import utils.Converter;
+import utils.GUIAction;
 
 import javax.swing.*;
 import java.awt.*;

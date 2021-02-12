@@ -1,4 +1,4 @@
-package main.com.company.java.utils;
+package utils;
 
 public class Converter {
     public static GUIAction getAction(String actionCommand) {

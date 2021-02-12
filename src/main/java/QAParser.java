@@ -1,5 +1,3 @@
-package main.com.company.java;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.regex.Matcher;

@@ -55,3 +55,10 @@ Q025:List a few application areas that can be supported by special packages in t
 A025:GUI programming, writing to and reading from files, accessing databases, using frequently used data structures.
 Q026:What problem arises when you want to integrate external libraries? How is this problem solved?
 A026:For externally developed libraries only the externally offered behavior is known (public method signatures of the classes). The internal structure, and how the functionality is implemented, is unknown. Since the method names are not necessarily self-explanatory, the programmer needs information about the purpose and use of the methods. This is ensured by API documentation and, if necessary, additional tutorials (also: programmer's guides).
+Q027:What are arrays and how are they stored?
+A027:Arrays are the most rudimentary way to store several objects with the same type in Java. The elements of an array are written to main memory sequentially one after the other.
+Q028:How does one declare arrays in Java and what has to be considered?
+A029:When declaring an array, the data type must be specified followed by an open and a closed square bracket and the identifier (“int[] vector;”).
+Q030:How can array elements be initialized differently from the standard?
+A030:Array elements can be initialized differently using a comma-separated list in curly brackets:
+int[] vector = new int[] {2, 4, 1};.

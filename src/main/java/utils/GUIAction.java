@@ -1,4 +1,4 @@
-package main.com.company.java.utils;
+package utils;
 
 public enum GUIAction {
     HINT,
