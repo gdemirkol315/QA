@@ -62,3 +62,15 @@ A029:When declaring an array, the data type must be specified followed by an ope
 Q030:How can array elements be initialized differently from the standard?
 A030:Array elements can be initialized differently using a comma-separated list in curly brackets:
 int[] vector = new int[] {2, 4, 1};.
+Q031:Use the example of the online shop to describe in which cases arrays are unsuitable in practice.
+A031:It is difficult to predict how many items a customer will put into the shopping cart. Some people place collective orders in the three-figure range; some break off the ordering process without a single product (e.g., because they have found a better offer). So, to be really sure, a shopping cart with a rather high capacity would have to be reserved for each customer. For these and similar cases an array is too inflexible.
+Q032:What is the collections framework and what purpose does it serve?
+A032:The collections framework consists of useful data structures enriched with a collection of search and sorting algorithms, interfaces with different implementations, and other useful classes.
+Q033:What possibilities does Java offer for sequentially processing all elements of a collection?
+A033:Java offers an iterator and an extended for loop for sequentially processing elements of a collection.
+Q034:Why can all collections in the collections framework be processed using an iterator?
+A034:They can be processed using an iterator because the interface collection is derived from Iterable and therefore all collections must offer an iterator.
+Q035:What are the differences between the normal and extended for-loop?
+A035:Only two parameters are expected in the header of the extended for-loop: the substitute object for the individual elements and the collection. They are also separated by a colon, not a semicolon.
+Q036:What condition must be met to use the extended for-loop?
+A036:The data structure must implement the Iterable interface.
