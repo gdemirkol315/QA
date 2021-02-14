@@ -74,3 +74,25 @@ Q035:What are the differences between the normal and extended for-loop?
 A035:Only two parameters are expected in the header of the extended for-loop: the substitute object for the individual elements and the collection. They are also separated by a colon, not a semicolon.
 Q036:What condition must be met to use the extended for-loop?
 A036:The data structure must implement the Iterable interface.
+Q037:What special properties does the data structure list of the collections framework have?
+A037:Lists can store any amount of data whose elements have a fixed order whose elements can be of any type and whose elements can be accessed randomly or sequentially.
+Q038:Difference between LinkedList and ArrayList?
+A038:Array List works like an array everytime it is modified length of the array is reset. So the place of every item is known and it is easy to reach this items. So array list is fast to read.     Linkedlist items are linked to each other with reference. So to read an item it has to be started from the first item in the list and go over each item to look reference of next one until the desired element is choosen. So it is slower to read items from linked list. However, it is much faster to insert or delete an element at any position since only the references of predecessors and successors need to be adjusted.
+Q039:Compare the methods of the list interface with those of the collection interface. What do you notice?
+A039:The existing methods for managing the collection are supplemented by methods that include an index. (Collection daha ilkel oldugu icin index yok. List te var collectiondan inherit edip onu daha kapsamli hale getiren.)
+Q040:What are the special features of a set in Java?
+A040:A set in Java represents a set in the mathematical sense. All implementations of this interface ensure that no element exists twice. More precisely, they ensure that the following condition never applies to any element pair x and y: x.equals(y) == true.
+Q041:Why does Mrs. Koch prefer the HashSet for the implementation of the online shop assortment?
+A041:Mrs. Koch prefers the HashSet because the assortment rarely changes but is accessed with every purchase.
+Q042:In which cases are arrays too slow, even with random access?
+A042:This case occurs if the index of the stored element is not also the identifying characteristic (e.g., the customer number). An index does not help in such cases since all elements must be searched for their identifying characteristic.
+Q043:What rules apply when adding elements in Maps?
+A043:A key is unique in that it either does not exist at all or exists only once in a map. Only one value exists for a key. If a pair of key and value is to be stored in a map in which the key already exists, the corresponding value is simply overwritten.
+Q044:How can elements of a map be iterated over?
+A044:A map cannot be used with an iterator. Instead, the interface offers special views of the elements, which allow, for example, iteration over all keys or all values (for example, the values() method).
+Q045:What is the principle of the stack data structure (stack)?
+A045:A stack is a data structure in which only the topmost element can be accessed at any one time or in which new elements can be stored on top.
+Q046:What possibilities does Java offer to implement a stack?
+A046:Java offers with java.util.Stack and java.util.Deque two possible data structures for this use case. Because both data structures inherit from other structures such as Collection and List, they offer considerably more methods than necessary.
+Q047:According to which principle does the queue data structure work?
+A047:The queue data structure corresponds to a queue. Elements should be processed in the order in which they are received (first-in/first-out). This means that the first element inserted in a queue is also the first element removed from the queue.
