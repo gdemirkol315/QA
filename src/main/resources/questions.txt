@@ -96,3 +96,15 @@ Q046:What possibilities does Java offer to implement a stack?
 A046:Java offers with java.util.Stack and java.util.Deque two possible data structures for this use case. Because both data structures inherit from other structures such as Collection and List, they offer considerably more methods than necessary.
 Q047:According to which principle does the queue data structure work?
 A047:The queue data structure corresponds to a queue. Elements should be processed in the order in which they are received (first-in/first-out). This means that the first element inserted in a queue is also the first element removed from the queue.
+Q048:What distinguishes character strings from the primitive data types in Java?
+A048:Strings are real objects in Java with their own methods.
+Q049:What is meant by the literal notation of strings?
+A049:The literal notation of strings allows one to specify strings directly in the source code without calling a constructor. String objects can be specified in Java with double quotation marks.
+Q050:What is meant by the literal notation of strings?
+A050:The literal notation of strings allows one to specify strings directly in the source code without calling a constructor. String objects can be specified in Java with double quotation marks.
+Q051:How can primitive values be transformed into strings and vice versa?
+A051:Transforming primitive values into strings can be done by using the String class method valueOf. One can convert a string back into a primitive type by using the static method parse of the corresponding wrapper class (e.g., Integer, Double, Float).
+Q052:Explain what is meant when strings are “immutable” in Java.
+A052:If “immutable”, it means that the content of a string is not changed after its creation. All editing methods (such as substring or trim) always return a new string.
+Q053:What problem occurs when chaining numerous strings and what is the cause?
+A053:When chaining many strings, many temporary string objects are generated. This happens because string objects are unmutable.
