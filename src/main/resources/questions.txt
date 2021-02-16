@@ -108,3 +108,23 @@ Q052:Explain what is meant when strings are “immutable” in Java.
 A052:If “immutable”, it means that the content of a string is not changed after its creation. All editing methods (such as substring or trim) always return a new string.
 Q053:What problem occurs when chaining numerous strings and what is the cause?
 A053:When chaining many strings, many temporary string objects are generated. This happens because string objects are unmutable.
+Q054:Explain the purpose and operation of the split method of the class String.
+A054:With the split method, a string can be split along a separator or a separator string. Split returns a string array with the resulting parts.
+Q055:Describe how to use the pattern of a SimpleDateFormat object.
+A055:The letters in a SimpleDateFormat pattern stand for certain attributes of a date (e.g., “y” for year, “M” for the month). By repeating a letter, one specifies how many characters are available for the output of the attribute.
+Q056:What is the pattern for formatting a date in ISO format? Use the following three examples: 2013-06-23, 2012-12-24, and 2010-01-19.
+A056:The pattern is: yyyy-MM-dd.
+Q057:In your own words, explain the purpose of the class GregorianCalendar.
+A057:The class GregorianCalendar represents the calendar used in Europe to determine dates.
+Q058:How are individual attributes set for a GregorianCalendar object?
+A058:Individual attributes of a GregorianCalendar object are set using the method set. One specifies the attribute to set and the value to which to set the attribute.
+Q059:What class enables access to the file system in Java?
+A059:The class File enables access to the file system in Java.
+Q060:Explain the meaning and purpose of the constant File.separator.
+A060:The constant File.separator contains the operating system-specific character for separating file path elements. In this way, a path can be defined as platform independent as possible.
+Q061:Explain what is meant by data streams in Java.
+A061:A data stream provides a general interface for reading and writing any data via any input and output options.
+Q062:Describe the concept of a data stream pipeline.
+A062:In a data stream pipeline, several data streams are interconnected and form the individual stages of the pipeline and pass the read or written data to the next stage.
+Q063:How are data streams in Java code connected to a pipeline?
+A063:The constructors of the individual data streams are interleaved. One starts with the data stream that is closest to the program and passes the next data stream in the direction of the data source or sink.
