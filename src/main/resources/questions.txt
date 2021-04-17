@@ -1,3 +1,4 @@
+Class:Java
 Q001:Why are comments used in the source code?
 A001:Comments are used to document and describe the meaning and purpose of lines of code directly on the spot.
 Q002:Describe the three comment types in Java. How do you recognize them and what are they used for?

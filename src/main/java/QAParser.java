@@ -9,7 +9,9 @@ public class QAParser {
     final private static String A_REGEX = "(A[0-9]{3}:)(.*)";
     final private static Pattern Q_PATTERN = Pattern.compile(Q_REGEX);
     final private static Pattern A_PATTERN = Pattern.compile(A_REGEX);
-
+    //TODO: instead of text file use xml file
+    // and instead of regex parsing
+    // use xml parsering
     public ArrayList<QA> parseQAs() {
 
         String readLine;
