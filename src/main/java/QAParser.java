@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 public class QAParser {
 
-    final private static String Q_REGEX = "(Q[0-9]{3}:)(.*)";
-    final private static String A_REGEX = "(A[0-9]{3}:)(.*)";
+    final private static String Q_REGEX = "(Q:)(.*)";
+    final private static String A_REGEX = "(A:)(.*)";
     final private static Pattern Q_PATTERN = Pattern.compile(Q_REGEX);
     final private static Pattern A_PATTERN = Pattern.compile(A_REGEX);
     //TODO: instead of text file use xml file

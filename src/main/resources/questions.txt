@@ -1,131 +1,45 @@
-Class:Java
-Q001:Why are comments used in the source code?
-A001:Comments are used to document and describe the meaning and purpose of lines of code directly on the spot.
-Q002:Describe the three comment types in Java. How do you recognize them and what are they used for?
-A002:Single line comments: They are introduced with double slashes and are valid until the end of a line. They are used for short descriptions.
-Bracketed or Multi line comments: They are introduced with a slash and a star and are valid until the end marker (i.e., a star followed by a slash). They can extend over several lines. They are used for detailed explanations.
-Javadoc comments: They are used like bracketed comments but introduced with a slash and two stars. They also extend over several lines and are useful for detailed documentation of source code. Javadoc comments are used by the external Javadoc program to generate technical documentation as HTML pages. Javadoc tags are available for the documentation. They can be used to identify explicit information such as the meaning of the parameters and the return value of a method.
-Q003:How does one give the short description of a method in Javadoc comments as well as describe the method parameters and return value?
-A003:The short description of a method consists of the first sentence of the Javadoc comment. Method parameters are described by the Javadoc tag @param; the return value by @return.
-Q004:Describe the purpose of Java annotations.
-A004:Java annotations are metadata available to the compiler and at the runtime of the program. They can be used to make certain statements about the code which can then be checked automatically by the compiler.
-Q005:What are code conventions and why were they developed?
-A005:Code conventions are agreements on how code is structured, named, and formatted. They were developed since many people often work together on a system and therefore need to understand one another's code.
-Q006:How do code conventions affect the maintainability of software?
-A006:These conventions are intended to help one read source code more efficiently. Code that can be read quickly can also be better understood, maintained and adapted.
-Q007:Name and explain the general advantages of the central definition of console output for objects.
-A007:Since the definition is only made once and centrally, less programming effort is required. Additionally, in contrast to multiple, decentralized definitions of console output, it is less likely that any attribute will be forgotten during output.
-Q008:Which method should be overwritten to generate a string description for an object in the Java programming language?
-A008:The class Object, from which all Java classes implicitly inherit, offers the method toString() for this purpose.
-Q009:Why do all objects in Java have a toString() method even when they do have an inheritance relationship or implement an interface?
-A009:The toString() method is defined in the general superclass Object.
-Q010:How are primitive data types stored? How are complex data types stored?
-A010:Primitive data types are stored in main memory as numbers, floating-point numbers, letters, or truth values. Complex data types are stored as a reference that refers to an object.
-Q011:What effects do the differences between reference and primitive data types have on the comparison of data types?
-A011:Primitive data types are compared with each other without any problems when using the == operator. Reference types, on the other hand, are only compared with each other using the reference. The system therefore checks whether they are the same objects. Identical objects cannot be compared in this way.
-Q012:What possibility does Java offer to compare the content of complex data types?
-A012:In Java, the equals() method of the class Object can be overridden to compare the contents of objects.
-Q013:What is the usual procedure for a comparing content with the equals() method?
-A013:1.	Check that it is the same reference.
-2.	Check that the objects are of the same type.
-3.	If yes, convert type and compare.
-4.	If no, call equals() method of the superclass.
-Q014:In which cases is the hashCode() method used?
-A014:The comparison with equals() is too slow for large classes with many attributes relevant for the comparison. In order to achieve similar fast processing as when comparing references, the comparison is performed using a hash code that depends on the content which can be generated with the method hashCode(). Apart from this, the hashCode() method is required by data structures that use hashing.
-Q015:What is hashing?
-A015:Hashing is the generation of a key for a given object that is as unique as possible.
-Q016:How can hash codes of strings be formed?
-A016:Each letter can be multiplied by a prime number which is always raised to a different power. The sum of these products results in the hash code.
-Q017:What are the requirements for a hashCode() method?
-A017:The method must be stable and match the equals() method. In addition, the generated hash codes must be as unique or widely spread as possible and only attributes that have to do with the identity of the object should be included in the calculation.
-Q018:What does “call by value” mean and how is it different from “call by reference”?
-A018:If primitive data types are used as parameters when a method is called in Java, a copy of the value is passed. This is referred to as “call by value.” Changes to the passed values only have local effects within the method. If, on the other hand, an object is expected, the reference to the object is passed and not a copy of the object (this is called a “call by reference”).
-Q019:What side effects can occur with “call by reference”?
-A019:“Call by reference” means that the calling program and the called method work with the same object. The changes to the object within the method therefore also affect the calling program.
-Q020:What steps are required to use externally developed libraries in your own project?
-A020:The libraries must first be purchased or downloaded. They must then be added to the Java classpath so that they can be found by the compiler.
-Q021:Which keyword is used in Java to make the classes of such libraries known to the compiler?
-A021:The keyword is import external.package.structure.external.class;.
-Q022:In some cases, significantly more than one class from an external library is used. However, specifying them individually is time-consuming. How can whole packages be “imported”?
-A022:Whole packages can be imported by using the “*” character (for example: import org.apache.log4j.*;).
-Q023:What is the Java class library?
-A023:The Java class library is one of the most important libraries in Java. It supports the programmer with useful functions for the most different problems.
-Q024:How does the inclusion of the Java class library differ from other external libraries?
-A024:The Java class library is already integrated in the Java runtime environment and therefore, in contrast to externally developed libraries, does not have to be manually added to the classpath.
-Q025:List a few application areas that can be supported by special packages in the Java class library.
-A025:GUI programming, writing to and reading from files, accessing databases, using frequently used data structures.
-Q026:What problem arises when you want to integrate external libraries? How is this problem solved?
-A026:For externally developed libraries only the externally offered behavior is known (public method signatures of the classes). The internal structure, and how the functionality is implemented, is unknown. Since the method names are not necessarily self-explanatory, the programmer needs information about the purpose and use of the methods. This is ensured by API documentation and, if necessary, additional tutorials (also: programmer's guides).
-Q027:What are arrays and how are they stored?
-A027:Arrays are the most rudimentary way to store several objects with the same type in Java. The elements of an array are written to main memory sequentially one after the other.
-Q028:How does one declare arrays in Java and what has to be considered?
-A029:When declaring an array, the data type must be specified followed by an open and a closed square bracket and the identifier (“int[] vector;”).
-Q030:How can array elements be initialized differently from the standard?
-A030:Array elements can be initialized differently using a comma-separated list in curly brackets:
-int[] vector = new int[] {2, 4, 1};.
-Q031:Use the example of the online shop to describe in which cases arrays are unsuitable in practice.
-A031:It is difficult to predict how many items a customer will put into the shopping cart. Some people place collective orders in the three-figure range; some break off the ordering process without a single product (e.g., because they have found a better offer). So, to be really sure, a shopping cart with a rather high capacity would have to be reserved for each customer. For these and similar cases an array is too inflexible.
-Q032:What is the collections framework and what purpose does it serve?
-A032:The collections framework consists of useful data structures enriched with a collection of search and sorting algorithms, interfaces with different implementations, and other useful classes.
-Q033:What possibilities does Java offer for sequentially processing all elements of a collection?
-A033:Java offers an iterator and an extended for loop for sequentially processing elements of a collection.
-Q034:Why can all collections in the collections framework be processed using an iterator?
-A034:They can be processed using an iterator because the interface collection is derived from Iterable and therefore all collections must offer an iterator.
-Q035:What are the differences between the normal and extended for-loop?
-A035:Only two parameters are expected in the header of the extended for-loop: the substitute object for the individual elements and the collection. They are also separated by a colon, not a semicolon.
-Q036:What condition must be met to use the extended for-loop?
-A036:The data structure must implement the Iterable interface.
-Q037:What special properties does the data structure list of the collections framework have?
-A037:Lists can store any amount of data whose elements have a fixed order whose elements can be of any type and whose elements can be accessed randomly or sequentially.
-Q038:Difference between LinkedList and ArrayList?
-A038:Array List works like an array everytime it is modified length of the array is reset. So the place of every item is known and it is easy to reach this items. So array list is fast to read.     Linkedlist items are linked to each other with reference. So to read an item it has to be started from the first item in the list and go over each item to look reference of next one until the desired element is choosen. So it is slower to read items from linked list. However, it is much faster to insert or delete an element at any position since only the references of predecessors and successors need to be adjusted.
-Q039:Compare the methods of the list interface with those of the collection interface. What do you notice?
-A039:The existing methods for managing the collection are supplemented by methods that include an index. (Collection daha ilkel oldugu icin index yok. List te var collectiondan inherit edip onu daha kapsamli hale getiren.)
-Q040:What are the special features of a set in Java?
-A040:A set in Java represents a set in the mathematical sense. All implementations of this interface ensure that no element exists twice. More precisely, they ensure that the following condition never applies to any element pair x and y: x.equals(y) == true.
-Q041:Why does Mrs. Koch prefer the HashSet for the implementation of the online shop assortment?
-A041:Mrs. Koch prefers the HashSet because the assortment rarely changes but is accessed with every purchase.
-Q042:In which cases are arrays too slow, even with random access?
-A042:This case occurs if the index of the stored element is not also the identifying characteristic (e.g., the customer number). An index does not help in such cases since all elements must be searched for their identifying characteristic.
-Q043:What rules apply when adding elements in Maps?
-A043:A key is unique in that it either does not exist at all or exists only once in a map. Only one value exists for a key. If a pair of key and value is to be stored in a map in which the key already exists, the corresponding value is simply overwritten.
-Q044:How can elements of a map be iterated over?
-A044:A map cannot be used with an iterator. Instead, the interface offers special views of the elements, which allow, for example, iteration over all keys or all values (for example, the values() method).
-Q045:What is the principle of the stack data structure (stack)?
-A045:A stack is a data structure in which only the topmost element can be accessed at any one time or in which new elements can be stored on top.
-Q046:What possibilities does Java offer to implement a stack?
-A046:Java offers with java.util.Stack and java.util.Deque two possible data structures for this use case. Because both data structures inherit from other structures such as Collection and List, they offer considerably more methods than necessary.
-Q047:According to which principle does the queue data structure work?
-A047:The queue data structure corresponds to a queue. Elements should be processed in the order in which they are received (first-in/first-out). This means that the first element inserted in a queue is also the first element removed from the queue.
-Q048:What distinguishes character strings from the primitive data types in Java?
-A048:Strings are real objects in Java with their own methods.
-Q049:What is meant by the literal notation of strings?
-A049:The literal notation of strings allows one to specify strings directly in the source code without calling a constructor. String objects can be specified in Java with double quotation marks.
-Q050:What is meant by the literal notation of strings?
-A050:The literal notation of strings allows one to specify strings directly in the source code without calling a constructor. String objects can be specified in Java with double quotation marks.
-Q051:How can primitive values be transformed into strings and vice versa?
-A051:Transforming primitive values into strings can be done by using the String class method valueOf. One can convert a string back into a primitive type by using the static method parse of the corresponding wrapper class (e.g., Integer, Double, Float).
-Q052:Explain what is meant when strings are “immutable” in Java.
-A052:If “immutable”, it means that the content of a string is not changed after its creation. All editing methods (such as substring or trim) always return a new string.
-Q053:What problem occurs when chaining numerous strings and what is the cause?
-A053:When chaining many strings, many temporary string objects are generated. This happens because string objects are unmutable.
-Q054:Explain the purpose and operation of the split method of the class String.
-A054:With the split method, a string can be split along a separator or a separator string. Split returns a string array with the resulting parts.
-Q055:Describe how to use the pattern of a SimpleDateFormat object.
-A055:The letters in a SimpleDateFormat pattern stand for certain attributes of a date (e.g., “y” for year, “M” for the month). By repeating a letter, one specifies how many characters are available for the output of the attribute.
-Q056:What is the pattern for formatting a date in ISO format? Use the following three examples: 2013-06-23, 2012-12-24, and 2010-01-19.
-A056:The pattern is: yyyy-MM-dd.
-Q057:In your own words, explain the purpose of the class GregorianCalendar.
-A057:The class GregorianCalendar represents the calendar used in Europe to determine dates.
-Q058:How are individual attributes set for a GregorianCalendar object?
-A058:Individual attributes of a GregorianCalendar object are set using the method set. One specifies the attribute to set and the value to which to set the attribute.
-Q059:What class enables access to the file system in Java?
-A059:The class File enables access to the file system in Java.
-Q060:Explain the meaning and purpose of the constant File.separator.
-A060:The constant File.separator contains the operating system-specific character for separating file path elements. In this way, a path can be defined as platform independent as possible.
-Q061:Explain what is meant by data streams in Java.
-A061:A data stream provides a general interface for reading and writing any data via any input and output options.
-Q062:Describe the concept of a data stream pipeline.
-A062:In a data stream pipeline, several data streams are interconnected and form the individual stages of the pipeline and pass the read or written data to the next stage.
-Q063:How are data streams in Java code connected to a pipeline?
-A063:The constructors of the individual data streams are interleaved. One starts with the data stream that is closest to the program and passes the next data stream in the direction of the data source or sink.
+Q:Parts of Turing Machine
+A:paper table, tape, state table, read/write head
+Q:In a Turing machine, what is the role of the tape?
+A:storage medium
+Q:Which of the following is the first punch card computer?
+A:Jacquard loom
+Q:Please explain the role of the vacuum tubes in the ENIAC.
+A:The role of the vacuum tubes in the ENIAC is that of an ON/OFF switch (1/0) that makes the calculations possible.
+Q:Please convert the decimal number 8410 to binary.
+A:1010100
+Q:Please convert the binary number 101102 to decimal.
+A:22
+Q:Please compute 01112 + 01012
+A:1100
+Q:What is the result of the following binary addition: 1 0 1 1 0 1 + 0 1 1 0 1?
+A:111010
+Q:Which of the following elements is a semiconductor?
+A:silicon, germanium
+Q:name of the 5 electron atom to impurify silicon cristal for (n-type)?
+A:phosphorous, arsenic
+Q:name of the 3 electron atom to impurify silicon cristal for (p-type)?
+A:boron
+Q:The process of adding impurities to the silicon crystal to make it an electrical conductor is called ...
+A:doping.
+Q:The lack of the electron in the impurity atom (here, boron) is called a
+A:hole
+Q:How does the current flow in transistors?
+A:The current flows from the source to the drain; the voltage at the gate regulates the flow
+Q:What are the types of circuit and explain them
+A:field portable gate array (FPGA) chips and application specific integrated circuit (ASIC) chips. The FPGA chips can be programmed or config ured at the field by the user, who is normally a manufacturer of electronic devices, such
+as sound system equipment. ASIC chips are preprogrammed and cannot be modified by user
+Q:What is the first step of a typical ASIC design flow?
+A:collecting the customer’s requirements
+Q:IN HDL Verilog language AND, OR, NOT, XOR
+A:AND & OR | NOT ~ XOR^
+Q:what is HDL?
+A:Hardware description language (HDL) is a static description of the gate diagrams without any execution.
+Q:One of the purposes of a hardware description language is logic synthesis, which refers to the process of
+A:transforming the HDL code into a hardware’s netlist.
+Q:Which of the following is an example of a hardware description language?
+A:Verilog
+Q:How to comment in Verilog?
+A:/* comment is here */
+Q:Is Verilog case-sensitive? True False
+A:TRUE
